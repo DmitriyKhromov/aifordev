@@ -56,6 +56,14 @@ docker build -t mini-anketa .
 docker run --rm -p 8080:8080 mini-anketa
 ```
 
+Чтобы сохранить образ в файл для сдачи:
+
+```bash
+docker save mini-anketa:latest -o mini-anketa.tar
+```
+
 Откройте в браузере: [http://localhost:8080](http://localhost:8080)
+
+Образ собран на `python:3.12-alpine` и без extras `uvicorn[standard]`, чтобы уменьшить размер.
 
 Frontend обращается к API по относительным путям `/questions` и `/answers` — backend раздаёт и API, и собранный UI из одного контейнера.
